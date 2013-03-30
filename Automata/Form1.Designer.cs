@@ -1,4 +1,4 @@
-﻿namespace Automata
+﻿namespace AFNDConverter
 {
     partial class Form1
     {

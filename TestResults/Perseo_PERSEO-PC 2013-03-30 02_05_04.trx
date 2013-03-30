@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="73bbf4c3-7abc-4f7c-92cc-65ff35f80f60" name="Perseo@PERSEO-PC 2013-03-30 02:05:04" runUser="Perseo-PC\Perseo" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="ba2a96c2-d046-4d38-9489-34ba11a1d312">
+    <Description>Esta es la configuración de pruebas predeterminada para una ejecución de pruebas local.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Perseo_PERSEO-PC 2013-03-30 02_05_04">
+      <DeploymentItem filename="C:\Users\Perseo\Documents\Visual Studio 2010\Projects\AutomataConverter\Automata\bin\Debug\Automata.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-03-30T02:05:04.1007069-05:00" queuing="2013-03-30T02:05:04.1857118-05:00" start="2013-03-30T02:05:04.1947123-05:00" finish="2013-03-30T02:05:04.9147535-05:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TransitionConstructorTest" storage="c:\users\perseo\documents\visual studio 2010\projects\automataconverter\automatatest\bin\debug\automatatest.dll" id="b3968783-340f-13e2-ae54-f4e3e6ba4c36">
+      <Execution id="9355a80c-d648-42a2-b72a-e7c148fc950f" />
+      <TestMethod codeBase="C:/Users/Perseo/Documents/Visual Studio 2010/Projects/AutomataConverter/AutomataTest/bin/Debug/AutomataTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="AutomataTest.TransitionTest, AutomataTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TransitionConstructorTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Resultados que no están en la lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos los resultados cargados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="b3968783-340f-13e2-ae54-f4e3e6ba4c36" executionId="9355a80c-d648-42a2-b72a-e7c148fc950f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="9355a80c-d648-42a2-b72a-e7c148fc950f" testId="b3968783-340f-13e2-ae54-f4e3e6ba4c36" testName="TransitionConstructorTest" computerName="PERSEO-PC" duration="00:00:00.2531690" startTime="2013-03-30T02:05:04.2027127-05:00" endTime="2013-03-30T02:05:04.8857518-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9355a80c-d648-42a2-b72a-e7c148fc950f">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method AutomataTest.TransitionTest.TransitionConstructorTest threw exception: 
+System.FormatException: Input string was not in a correct format.</Message>
+          <StackTrace>    at System.Text.StringBuilder.AppendFormat(IFormatProvider provider, String format, Object[] args)
+   at System.String.Format(IFormatProvider provider, String format, Object[] args)
+   at System.IO.TextWriter.WriteLine(String format, Object arg0, Object arg1, Object arg2)
+   at System.IO.TextWriter.SyncTextWriter.WriteLine(String format, Object arg0, Object arg1, Object arg2)
+   at System.Console.WriteLine(String format, Object arg0, Object arg1, Object arg2)
+   at AutomataTest.TransitionTest.TransitionConstructorTest() in C:\Users\Perseo\Documents\Visual Studio 2010\Projects\AutomataConverter\AutomataTest\TransitionTest.cs:line 77
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

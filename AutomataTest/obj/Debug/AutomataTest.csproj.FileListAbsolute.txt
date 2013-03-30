@@ -1,0 +1,7 @@
+C:\Users\Perseo\Documents\Visual Studio 2010\Projects\AutomataConverter\AutomataTest\obj\Debug\AutomataTest.csprojResolveAssemblyReference.cache
+C:\Users\Perseo\Documents\Visual Studio 2010\Projects\AutomataConverter\AutomataTest\bin\Debug\AutomataTest.dll
+C:\Users\Perseo\Documents\Visual Studio 2010\Projects\AutomataConverter\AutomataTest\bin\Debug\AutomataTest.pdb
+C:\Users\Perseo\Documents\Visual Studio 2010\Projects\AutomataConverter\AutomataTest\bin\Debug\Automata.exe
+C:\Users\Perseo\Documents\Visual Studio 2010\Projects\AutomataConverter\AutomataTest\bin\Debug\Automata.pdb
+C:\Users\Perseo\Documents\Visual Studio 2010\Projects\AutomataConverter\AutomataTest\obj\Debug\AutomataTest.dll
+C:\Users\Perseo\Documents\Visual Studio 2010\Projects\AutomataConverter\AutomataTest\obj\Debug\AutomataTest.pdb

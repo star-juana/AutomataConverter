@@ -19,25 +19,15 @@ namespace AFNDConverter
 
         #region Constructor
 
-        public AFD(string alphabet, string states, string initialState, string finalsStates, List<Transition> transitions) 
+        public AFD(string[] alphabet, string[] states, string[] initialState, string[] finalsStates, List<Transition> transitions) 
         {
-            this._alphabet = stringToArray(alphabet);
-            this._states = stringToArray(states);
-            this._initialState = stringToArray(initialState);
-            this._finalsStates = stringToArray(finalsStates);
+            this._alphabet = alphabet;
+            this._states = states;
+            this._initialState = initialState;
+            this._finalsStates = finalsStates;
             this._transitions = transitions;
         }
         #endregion
 
-        #region Metodos auxiliares
-
-        //Metodo que toma una cadena separda por comas (',') y devuelve un array con los elementos de la cadena
-        public static string[] stringToArray(string input)
-        {
-            string[] separators = { ",", " ,", ", " };
-            return input.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-        }
-
-        #endregion
     }
 }
