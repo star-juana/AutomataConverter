@@ -9,16 +9,16 @@ namespace AFNDConverter
     class AFND
     {
         #region Atributos
-        public string[] _alphabet;
-        public string[] _states;
-        public string _initialState;
-        public string[] _finalsStates;
-        public List<Transition> _transitions;
+        List<string> _alphabet = new List<string>();
+        List<string> _states = new List<string>();
+        List<string> _initialState = new List<string>();
+        List<string> _finalsStates = new List<string>();
+        List<Transition> _transitions = new List<Transition>();
         #endregion
 
         #region Constructor
 
-        public AFND(string[] alphabet, string[] states, string initialState, string[] finalsStates, List<Transition> transitions) 
+        public AFND(List<string> alphabet, List<string> states, List<string> initialState, List<string> finalsStates, List<Transition> transitions) 
         {
             this._alphabet = alphabet;
             this._states = states;

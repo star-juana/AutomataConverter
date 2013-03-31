@@ -75,11 +75,11 @@ namespace AutomataTest
             string[] to = {"q1"}; // TODO: Inicializar en un valor adecuado
             Transition target = new Transition(from, with, to);
             Assert.IsInstanceOfType(target, typeof(Transition),"No es tipo transition");
-            Assert.IsInstanceOfType(target.from, typeof(string), "No es un string");
+            Assert.IsInstanceOfType(target.From, typeof(string), "No es un string");
             Assert.IsInstanceOfType(target.with, typeof(string), "No es tipo string");
             Assert.IsInstanceOfType(target.to, typeof(string[]), "No es tipo string[]");
 
-            Console.WriteLine("Estado {0} transiciona con {1} al estado {2}",target.from, target.with, target.to[0]);
+            Console.WriteLine("Estado {0} transiciona con {1} al estado {2}",target.From, target.with, target.to[0]);
 
         }
     }

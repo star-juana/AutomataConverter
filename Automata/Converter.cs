@@ -38,7 +38,7 @@ namespace AFNDConverter
             {
                 foreach (Transition state in transitions)
                 {
-                    if (state.from == initialestate)
+                    if (state.From == initialestate)
                         if (state.with == transitionWith)
                             states.Add(state);
                 }
