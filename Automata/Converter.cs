@@ -105,7 +105,6 @@ namespace AFNDConverter
         }
 
         //Toma las transiciones en cuyos estados, se inicie con lo pedido estados que ingresen con el simbolo del alfabeto señalado
-        
         static List<Transition> obtenerTransiciones(string[] estadosIniciales, string transicionaCon, List<Transition> trancisiones) 
         {
             //Lista donde SerializableAttribute almacenan los estados que coinciden const las condiciones
