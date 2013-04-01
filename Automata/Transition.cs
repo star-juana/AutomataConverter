@@ -6,32 +6,32 @@ namespace AFNDConverter
 {
     class Transition
     {
-        private string from;            
-        public string with;
-        public string to;
+        public string inicia;            
+        public string con;
+        public string termina;
 
         public Transition(string from, string with, string to)
         {
-            this.from = from;
-            this.with = with;
-            this.to = to;
+            this.inicia = from;
+            this.con = with;
+            this.termina = to;
         }
 
         #region Metodos de Validación
         public string From
         {
-            get { return from; }
-            set { from = value; }
+            get { return inicia; }
+            set { inicia = value; }
         }
         public string With
         {
-            get { return with; }
-            set { with = value; }
+            get { return con; }
+            set { con = value; }
         }
         public string To
         {
-            get { return to; }
-            set { to = value; }
+            get { return termina; }
+            set { termina = value; }
         }
 
         #endregion

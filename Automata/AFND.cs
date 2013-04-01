@@ -9,27 +9,32 @@ namespace AFNDConverter
     class AFND
     {
         #region Atributos
-        List<string> _alphabet = new List<string>();
-        List<string> _states = new List<string>();
-        List<string> _initialState = new List<string>();
-        List<string> _finalsStates = new List<string>();
-        List<Transition> _transitions = new List<Transition>();
+        List<string> _alfabeto;
+        List<string> _estados;
+        string _estadoInicial; //Es una solo estado no es necesario que sea un lista
+        List<string> _estadosFinales;
+        List<Transition> _transiciones;
         #endregion
 
         #region Constructor
 
-        public AFND(List<string> alphabet, List<string> states, List<string> initialState, List<string> finalsStates, List<Transition> transitions) 
+        public AFND(List<string> alphabet, List<string> states, string initialState, List<string> finalsStates, List<Transition> transitions) 
         {
-            this._alphabet = alphabet;
-            this._states = states;
-            this._initialState = initialState;
-            this._finalsStates = finalsStates;
-            this._transitions = transitions;
+            this._alfabeto = alphabet;
+            this._estados = states;
+            this._estadoInicial = initialState;
+            this._estadosFinales = finalsStates;
+            this._transiciones = transitions;
         }
         #endregion
 
         #region Metodos auxiliares
 
+        void AgregarUnaTransicion(Transition transicion)
+       {
+           this._transiciones.Add(transicion);
+
+       }
 
         #endregion
     }

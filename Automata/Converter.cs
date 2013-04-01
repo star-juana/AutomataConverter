@@ -12,45 +12,119 @@ namespace AFNDConverter
         //TODO: Discutir sobre el uso de propiedades o atributos
         public AFND _AFND;
         public AFD _AFD;
+        public List<string[]> _conjutos;
 
         #region Constructor
         public Converter(AFND afnd)
             {
+                //Coloco el AFND en su sitio
                 this._AFND = afnd;
+                
+                // 1 - Asigno el estado inicial del AFND al AFD
+                // 2 - Asigno la cerradura epsilon del estado inicial al conjunto de estados
+                // 3 - Itero en busca de las transiciones con cada elemento del alfabeto en busca de los estado en que terminan
+                // 4 - Las transiciones que coinciden en la busqueda de 3 las agrego a la lista de conjuntos
+                // 5 - Aplico la cerradura epsilon al ultimo elemto de la lista de conjuntos
+                // 6 - Verifico si el ultimo conjunto es igual a alguno de los anteriores
+                // 6.1 - Si NO existe agrego el ultimo conjunto creado a la lista de conjuntos
+                // 6.2 - Si existe solo agrego el indice del conjunto ya existente a la lista de conjuntos
+                // 7 - Luego de iterar los elemntos del alfabeto, creo las transiciones tomando como nombre del estado el indice del conjunto en la lista
+                // 8 - Repito de de 3 a 7 hasta no hallar conjuntos nuevos
+                // 9 - Busco los estados finales dentro de la lista de conjuntos
+                // 10 - Agrego los estados finales al AFD
+
             }
         #endregion
 
         #region Metodos principales
 
-        static string[] EpsilonLock() 
+        //Metodo para la cerradura epsilon
+        void CerraduraEpsilon(List<Transition> transiciones, string[] estadosIniciales) 
         {
-            return new string[] { "a" };
+            //creo la lista que albergará los estados que transicionas con epsilon
+            List<string> conjunto_epsilon = new List<string>(); 
+
+            //Recorro cada una de las transiciones indicadas para buscar quienes transicionan con epsilon
+            foreach (Transition transicion in transiciones)
+            {
+                foreach (string estadoInicial in estadosIniciales)
+                {
+                    //Verifico que el estado inicial de la transicion en curso sea igual al estado inicial que se selecciona
+                    if (transicion.inicia == estadoInicial)
+                    {
+                        //Verifico que ese estado inicial transiciona con "epsilon"
+                        if (transicion.con == "epsilon")
+                        {
+                            //Agrego el estado en que termina la transicion a la lista que estados finales con
+                            //transicion epsilon que ingresan a la cerradura
+                            conjunto_epsilon.Add(transicion.termina);
+                        }
+                    }
+                }
+
+            }
+
+            this._conjutos.Add(conjunto_epsilon.ToArray<string>());
+        }
+
+        //Metodo para verificar si existe o no un conjunto entrante respecto a los que están
+        public static bool ExisteElConjunto(string[] conjuntoEntrante, List<string[]> ListaConjuntosExistentes){
+            bool respuesta = false;
+
+            foreach (string[] conjuntoExistente in ListaConjuntosExistentes)
+            {
+                if (conjuntoExistente.Length == conjuntoEntrante.Length)
+                {
+                    respuesta = false;
+                }
+                else 
+                {
+                    int c = 0;
+                    foreach (string elementoExistente in conjuntoExistente)
+                    {
+                        foreach (string elementoEntrante in conjuntoEntrante)
+                        {
+                            if (elementoExistente == elementoEntrante)
+                            {
+                                c++;
+                            }
+                        }
+                    }
+
+                    if ((conjuntoExistente.Length == c) || (conjuntoEntrante.Length == c))
+                    {
+                        respuesta = true;
+                    }
+                    else
+                    {
+                        respuesta =  false;
+                    }
+                }
+            }
+            return respuesta;
         }
 
         //Toma las transiciones en cuyos estados, se inicie con lo pedido estados que ingresen con el simbolo del alfabeto señalado
-        static List<Transition> getTransitions(string[] initialStates, string transitionWith, List<Transition> transitions) 
+        
+        static List<Transition> obtenerTransiciones(string[] estadosIniciales, string transicionaCon, List<Transition> trancisiones) 
         {
             //Lista donde SerializableAttribute almacenan los estados que coinciden const las condiciones
-            List<Transition> states = new List<Transition>();
+            List<Transition> estados = new List<Transition>();
 
             //Bucle para buscar las coincidencias
-            foreach (string initialestate in initialStates)
+            foreach (string estadoInicial in estadosIniciales)
             {
-                foreach (Transition state in transitions)
+                foreach (Transition estado in trancisiones)
                 {
-                    if (state.From == initialestate)
-                        if (state.with == transitionWith)
-                            states.Add(state);
+                    if (estado.inicia == estadoInicial)
+                        if (estado.con == transicionaCon)
+                            estados.Add(estado);
                 }
             }
 
-            return states;
+            return estados;
         }
 
-        //static AFD toAFD() {
-
-        //    return new AFD();
-        //}
         #endregion
 
         #region Metodos auxiliares

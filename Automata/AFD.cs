@@ -7,26 +7,26 @@ namespace AFNDConverter
 {
     class AFD
     {
-        //si se ve esto es una prueba correcta
-          //Esta clase permite definir unchecked AFND y tenerlo por separado del resto de componentes del programa
+
+        //Esta clase permite definir unchecked AFND y tenerlo por separado del resto de componentes del programa
         #region Atributos
-        public string[] _alphabet;
-        public string[] _states;
-        public string[] _initialState;
-        public string[] _finalsStates;
-        public List<Transition> _transitions;
+        public List<string> _alfabeto;
+        public List<string> _estados;
+        public List<string> _estadoInicial;
+        public List<string> _estadosFinales;
+        public List<Transition> _trancisiones;
         #endregion
 
         #region Constructor
 
-        public AFD(string[] alphabet, string[] states, string[] initialState, string[] finalsStates, List<Transition> transitions) 
+        public AFD(List<string> alfabeto, string estadoInicial) 
         {
-            this._alphabet = alphabet;
-            this._states = states;
-            this._initialState = initialState;
-            this._finalsStates = finalsStates;
-            this._transitions = transitions;
+            this._alfabeto = alfabeto;
+            this._estadoInicial.Add(estadoInicial);
         }
+        #endregion
+
+        #region Metodos auxiliares
         #endregion
 
     }
