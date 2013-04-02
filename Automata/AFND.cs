@@ -6,7 +6,7 @@ using System.Text;
 namespace AFNDConverter
 {
     //Esta clase permite definir unchecked AFND y tenerlo por separado del resto de componentes del programa
-    class AFND
+    public class AFND
     {
         #region Atributos
         public List<string> _alfabeto;

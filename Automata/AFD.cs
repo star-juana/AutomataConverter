@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AFNDConverter
 {
-    class AFD
+    public class AFD
     {
 
         //Esta clase permite definir unchecked AFND y tenerlo por separado del resto de componentes del programa

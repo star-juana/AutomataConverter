@@ -57,5 +57,10 @@ namespace AFNDConverter
             AFND nuevo = new AFND(_alphabet, _states, _initialState, _finalsStates, _transitions);
             Converter cambio = new Converter(nuevo);
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

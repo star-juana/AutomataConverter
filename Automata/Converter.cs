@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace AFNDConverter
 {
-    class Converter
+    public class Converter
     {
         //Atributo de la clase que contendrá el AFND a convertir
         //TODO: Discutir sobre el uso de propiedades o atributos

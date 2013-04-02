@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -49,7 +50,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,6 +89,16 @@
             this.groupBox1.Size = new System.Drawing.Size(507, 403);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(23, 331);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(110, 36);
+            this.button6.TabIndex = 19;
+            this.button6.Text = "GENERAR";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // textBox7
             // 
@@ -252,16 +262,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Estados";
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(23, 331);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(110, 36);
-            this.button6.TabIndex = 19;
-            this.button6.Text = "GENERAR";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,6 +271,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
