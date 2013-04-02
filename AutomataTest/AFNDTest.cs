@@ -72,12 +72,12 @@ namespace AutomataTest
         [TestMethod()]
         public void AFNDConstructorTest()
         {
-            string[] alphabet = {"a","b"}; // TODO: Inicializar en un valor adecuado
-            string[] states = {"q0","q1","q1","q3"}; // TODO: Inicializar en un valor adecuado
-            string initialState = {"q1"}; // TODO: Inicializar en un valor adecuado
-            string[] finalsStates = null; // TODO: Inicializar en un valor adecuado
-            Transition q0b = new Transition("q0","b", new string[] {"q1","q2"});
-            Transition q0a = new Transition("q0", "a", new string[] { "q0", "q1" });
+            List<string> alphabet = new List<string>{"a","b"}; // TODO: Inicializar en un valor adecuado
+            List<string> states = new List<string> { "q0", "q1", "q1", "q3" }; // TODO: Inicializar en un valor adecuado
+            List<string> initialState = new List<string> { "q1" }; // TODO: Inicializar en un valor adecuado
+            List<string> finalsStates = null; // TODO: Inicializar en un valor adecuado
+            Transition q0b = new Transition("q0","b", "q1");
+            Transition q0a = new Transition("q0", "a", "q2");
             List<Transition> transitions = new List<Transition> {q0a, q0b };
             AFND target = new AFND(alphabet, states, initialState, finalsStates, transitions);
             

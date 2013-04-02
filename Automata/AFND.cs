@@ -37,5 +37,10 @@ namespace AFNDConverter
        }
 
         #endregion
+
+        internal void cerraduraEpsilon(List<Transition> transiciones, List<string> list, int indiceConjunto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

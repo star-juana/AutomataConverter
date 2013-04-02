@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AFNDConverter
 {
-    class Transition
+    public class Transition
     {
         public string _inicia;            
         public string _con;
@@ -18,22 +18,25 @@ namespace AFNDConverter
         }
 
         #region Metodos de Validación
-        public string Inicia
+        public string inicia
         {
             get { return _inicia; }
             set { _inicia = value; }
         }
-        public string Con
+        public string con
         {
             get { return _con; }
             set { _con = value; }
         }
-        public string terminaEn
+        public string terminaen
         {
-            get { return terminaEn; }
-            set { terminaEn = value; }
+            get { return terminaen; }
+            set { terminaen = value; }
         }
 
+        #endregion
+
+        #region Métodos auxiliares
         #endregion
     }
 }
