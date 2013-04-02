@@ -22,7 +22,7 @@ namespace AFNDConverter
         public AFD(List<string> alfabeto, List<string> estadoInicial) 
         {
             this._alfabeto = alfabeto;
-            this._estadoInicial.Add(estadoInicial);
+            this._estadoInicial = estadoInicial;
         }
         #endregion
 

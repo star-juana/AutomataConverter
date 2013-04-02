@@ -26,8 +26,6 @@ namespace AFNDConverter
                 // 2 - Asigno la cerradura epsilon del estado inicial al conjunto de estados
                 this._AFD = new AFD(this._AFND._alfabeto, this._AFND._estadoInicial);
                 
-                cerraduraEpsilon(_AFND._transiciones, _AFD._estadoInicial);
-                
                 // 3 - Itero en busca de las transiciones con cada elemento del alfabeto en busca de los estado en que terminan
                 // 4 - Las transiciones que coinciden en la busqueda de 3 las agrego a la lista de conjuntos
                 // 5 - Aplico la cerradura epsilon al ultimo elemto de la lista de conjuntos
@@ -45,9 +43,12 @@ namespace AFNDConverter
         #region Metodos principales
 
         //Metodo para agregar elementos a al conjunto de nuevos estados
+        void AgregaraConjuntoDeEstados(string estado, int indiceEstado)
+        {
+        }
 
         //Metodo para la cerradura epsilon
-        public static string cerraduraEpsilon(List<Transition> transiciones, List<string> estadosIniciales, int indiceConjunto) 
+        void cerraduraEpsilon(List<Transition> transiciones, List<string> estadosIniciales, int indiceConjunto) 
         {
             //creo la lista que albergará los estados que transicionas con epsilon
             List<string> conjunto_epsilon = new List<string>(); 
@@ -65,16 +66,14 @@ namespace AFNDConverter
                         {
                             //Agrego el estado en que termina la transicion a la lista que estados finales con
                             //transicion epsilon que ingresan a la cerradura
-                            return transicion._terminaEn;
-                            cerraduraEpsilon(transiciones, conjunto_epsilon); //"Recursividad"
+                            Console.WriteLine(transicion._terminaEn);
                         }
                     }
+                    else { continue; }
                 }
 
             }
-            
-            return conjunto_epsilon;
-            this._conjutosEstados.Add(conjunto_epsilon);
+
         }
 
         //Metodo para verificar si existe o no un conjunto entrante respecto a los que están
@@ -125,8 +124,8 @@ namespace AFNDConverter
             {
                 foreach (Transition estado in trancisiones)
                 {
-                    if (estado.inicia == estadoInicial)
-                        if (estado.con == transicionaCon)
+                    if (estado._inicia == estadoInicial)
+                        if (estado._con == transicionaCon)
                             estados.Add(estado);
                 }
             }
