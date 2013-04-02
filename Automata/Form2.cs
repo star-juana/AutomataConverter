@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,14 +11,18 @@ namespace AFNDConverter
 {
     public partial class Form2 : Form
     {
+        private CurrencyManager currencyManager = null;
+        AFD automata;
         public Form2(AFD final)
         {
             InitializeComponent();
+            automata = final;
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
+            currencyManager = (CurrencyManager)dataGridView1.BindingContext[automata.Trancisiones];
         }
+
     }
 }
