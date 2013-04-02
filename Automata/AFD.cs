@@ -27,6 +27,37 @@ namespace AFNDConverter
         #endregion
 
         #region Metodos auxiliares
+
+        public List<string> EstadoInicial
+        {
+            get { return _estadoInicial; }
+            set { _estadoInicial = value; }
+        }
+
+        public List<string> EstadosFinales
+        {
+            get { return _estadosFinales; }
+            set { _estadosFinales = value; }
+        }
+
+        public List<string> Alfabeto
+        {
+            get { return _alfabeto; }
+            set { _alfabeto = value; }
+        }
+
+        public List<string> Estados
+        {
+            get { return _estados; }
+            set { _estados = value; }
+        }
+
+        public List<Transition> Trancisiones
+        {
+            get { return _trancisiones; }
+            set { _trancisiones = value; }
+        }
+
         #endregion
 
     }
