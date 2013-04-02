@@ -72,6 +72,8 @@ namespace AFNDConverter
                         //Verifico que ese estado inicial transiciona con "epsilon"
                         string temp = transicion._terminaEn;
                         conjunto_epsilon.Add(transicion._terminaEn);
+                        
+                        cerraduraEpsilon(transiciones, conjunto_epsilon, indiceConjunto); //"Recursividad"
                 
                     } 
                     //else if(transicion._inicia == transicion._terminaEn) && 
