@@ -12,7 +12,7 @@ namespace AFNDConverter
         //TODO: Discutir sobre el uso de propiedades o atributos
         public AFND _AFND;
         public AFD _AFD;
-        public List<string[]> _conjutos;
+        public Dictionary<int, List<string>> _conjutosEstados;
 
         #region Constructor
         public Converter(AFND afnd)
@@ -25,6 +25,7 @@ namespace AFNDConverter
                 
                 // 2 - Asigno la cerradura epsilon del estado inicial al conjunto de estados
                 this._AFD = new AFD(this._AFND._alfabeto, this._AFND._estadoInicial);
+                
                 cerraduraEpsilon(_AFND._transiciones, _AFD._estadoInicial);
                 
                 // 3 - Itero en busca de las transiciones con cada elemento del alfabeto en busca de los estado en que terminan
@@ -43,8 +44,10 @@ namespace AFNDConverter
 
         #region Metodos principales
 
+        //Metodo para agregar elementos a al conjunto de nuevos estados
+
         //Metodo para la cerradura epsilon
-        void cerraduraEpsilon(List<Transition> transiciones, List<string> estadosIniciales) 
+        public static string cerraduraEpsilon(List<Transition> transiciones, List<string> estadosIniciales, int indiceConjunto) 
         {
             //creo la lista que albergará los estados que transicionas con epsilon
             List<string> conjunto_epsilon = new List<string>(); 
@@ -62,15 +65,16 @@ namespace AFNDConverter
                         {
                             //Agrego el estado en que termina la transicion a la lista que estados finales con
                             //transicion epsilon que ingresan a la cerradura
-                            conjunto_epsilon.Add(transicion._terminaEn);
+                            return transicion._terminaEn;
                             cerraduraEpsilon(transiciones, conjunto_epsilon); //"Recursividad"
                         }
                     }
                 }
 
             }
-
-            this._conjutos.Add(conjunto_epsilon.ToArray<string>());
+            
+            return conjunto_epsilon;
+            this._conjutosEstados.Add(conjunto_epsilon);
         }
 
         //Metodo para verificar si existe o no un conjunto entrante respecto a los que están
