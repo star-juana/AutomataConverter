@@ -13,7 +13,7 @@ namespace AFNDConverter
         public AFND _AFND;
         public AFD _AFD;
         public Dictionary<int, List<string>> _conjutosEstados;
-        public List<List<string>> ListaConjuntosExistentes = new List<List<string>>();
+        public static List<List<string>> ListaConjuntosExistentes = new List<List<string>>();
         #region Constructor
         public Converter(AFND afnd)
         {
@@ -107,9 +107,9 @@ namespace AFNDConverter
 
             foreach (List<string> conjuntoExistente in ListaConjuntosExistentes)
             {
-               
 
-                    if (conjuntoExistente.Count-1 == conjuntoEntrante.Length)
+
+                if (conjuntoExistente.Count - 1 == conjuntoEntrante.Count - 1)
                     {
                         respuesta = false;
                     }
@@ -127,7 +127,7 @@ namespace AFNDConverter
                             }
                         }
 
-                        if ((conjuntoExistente.Count - 1 == c) || (conjuntoEntrante.Length == c))
+                        if ((conjuntoExistente.Count - 1 == c) || (conjuntoEntrante.Count - 1 == c))
                         {
                             respuesta = true;
                         }
