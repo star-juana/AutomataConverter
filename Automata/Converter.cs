@@ -39,6 +39,7 @@ namespace AFNDConverter
 
         }
         #endregion
+
         #region Metodos principales
 
         //Metodo para agregar elementos a al conjunto de nuevos estados
