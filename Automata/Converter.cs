@@ -13,7 +13,7 @@ namespace AFNDConverter
         public AFND _AFND;
         public AFD _AFD;
         public Dictionary<int, List<string>> _conjutosEstados;
-
+        public List<List<string>> ListaConjuntosExistentes = new List<List<string>>();
         #region Constructor
         public Converter(AFND afnd)
         {
@@ -39,7 +39,6 @@ namespace AFNDConverter
 
         }
         #endregion
-
         #region Metodos principales
 
         //Metodo para agregar elementos a al conjunto de nuevos estados
@@ -72,9 +71,16 @@ namespace AFNDConverter
                         //Verifico que ese estado inicial transiciona con "epsilon"
                         string temp = transicion._terminaEn;
                         conjunto_epsilon.Add(transicion._terminaEn);
-                        
-                        cerraduraEpsilon(transiciones, conjunto_epsilon, indiceConjunto); //"Recursividad"
-                
+
+
+                        if (ExisteElConjunto(conjunto_epsilon, ListaConjuntosExistentes) == true)
+                        {
+                           ListaConjuntosExistentes.Add(conjunto_epsilon);
+                        }
+                        else
+                        {
+                            cerraduraEpsilon(transiciones, conjunto_epsilon, indiceConjunto); //"Recursividad"
+                        }
                     } 
                     //else if(transicion._inicia == transicion._terminaEn) && 
                     //{
@@ -95,42 +101,49 @@ namespace AFNDConverter
         }
 
         //Metodo para verificar si existe o no un conjunto entrante respecto a los que están
-        public static bool ExisteElConjunto(string[] conjuntoEntrante, List<string[]> ListaConjuntosExistentes)
+        public static bool ExisteElConjunto(List<string> conjuntoEntrante, List<List<string>> Lista)
         {
             bool respuesta = false;
 
-            foreach (string[] conjuntoExistente in ListaConjuntosExistentes)
+            foreach (List<string> conjuntoExistente in ListaConjuntosExistentes)
             {
-                if (conjuntoExistente.Length == conjuntoEntrante.Length)
-                {
-                    respuesta = false;
-                }
-                else
-                {
-                    int c = 0;
-                    foreach (string elementoExistente in conjuntoExistente)
-                    {
-                        foreach (string elementoEntrante in conjuntoEntrante)
-                        {
-                            if (elementoExistente == elementoEntrante)
-                            {
-                                c++;
-                            }
-                        }
-                    }
+               
 
-                    if ((conjuntoExistente.Length == c) || (conjuntoEntrante.Length == c))
-                    {
-                        respuesta = true;
-                    }
-                    else
+                    if (conjuntoExistente.Count-1 == conjuntoEntrante.Length)
                     {
                         respuesta = false;
                     }
-                }
+                    else
+                    {
+                        int c = 0;
+                        foreach (string elementoExistente in conjuntoExistente)
+                        {
+                            foreach (string elementoEntrante in conjuntoEntrante)
+                            {
+                                if (elementoExistente == elementoEntrante)
+                                {
+                                    c++;
+                                }
+                            }
+                        }
+
+                        if ((conjuntoExistente.Count - 1 == c) || (conjuntoEntrante.Length == c))
+                        {
+                            respuesta = true;
+                        }
+                        else
+                        {
+                            respuesta = false;
+                        }
+                    }
+
+                
             }
             return respuesta;
         }
+
+      
+
 
         //Toma las transiciones en cuyos estados, se inicie con lo pedido estados que ingresen con el simbolo del alfabeto señalado
         static List<Transition> obtenerTransiciones(string[] estadosIniciales, string transicionaCon, List<Transition> trancisiones)
