@@ -45,6 +45,14 @@ namespace AFNDConverter
         //Metodo para agregar elementos a al conjunto de nuevos estados
         void AgregaraConjuntoDeEstados(string estado, int indiceEstado)
         {
+            if (this._conjutosEstados[indiceEstado] == null)
+            {
+                this._conjutosEstados.Add(indiceEstado, new List<string> { estado });
+            }
+            else
+            {
+                this._conjutosEstados[indiceEstado] = new List<string> { estado };
+            }
         }
 
         //Metodo para la cerradura epsilon
