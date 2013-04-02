@@ -18,10 +18,15 @@ namespace AFNDConverter
         public Converter(AFND afnd)
             {
                 //Coloco el AFND en su sitio
-                this._AFND = afnd;
+                
                 
                 // 1 - Asigno el estado inicial del AFND al AFD
+                this._AFND = new AFND(afnd._alfabeto,afnd._estados,afnd._estadoInicial,afnd._estadosFinales, afnd._transiciones);
+                
                 // 2 - Asigno la cerradura epsilon del estado inicial al conjunto de estados
+                this._AFD = new AFD(this._AFND._alfabeto, this._AFND._estadoInicial);
+                cerraduraEpsilon(_AFND._transiciones, _AFD._estadoInicial);
+                
                 // 3 - Itero en busca de las transiciones con cada elemento del alfabeto en busca de los estado en que terminan
                 // 4 - Las transiciones que coinciden en la busqueda de 3 las agrego a la lista de conjuntos
                 // 5 - Aplico la cerradura epsilon al ultimo elemto de la lista de conjuntos
@@ -39,7 +44,7 @@ namespace AFNDConverter
         #region Metodos principales
 
         //Metodo para la cerradura epsilon
-        void CerraduraEpsilon(List<Transition> transiciones, string[] estadosIniciales) 
+        void cerraduraEpsilon(List<Transition> transiciones, List<string> estadosIniciales) 
         {
             //creo la lista que albergará los estados que transicionas con epsilon
             List<string> conjunto_epsilon = new List<string>(); 
@@ -50,14 +55,15 @@ namespace AFNDConverter
                 foreach (string estadoInicial in estadosIniciales)
                 {
                     //Verifico que el estado inicial de la transicion en curso sea igual al estado inicial que se selecciona
-                    if (transicion.inicia == estadoInicial)
+                    if (transicion._inicia == estadoInicial)
                     {
                         //Verifico que ese estado inicial transiciona con "epsilon"
-                        if (transicion.con == "epsilon")
+                        if (transicion._con == "epsilon")
                         {
                             //Agrego el estado en que termina la transicion a la lista que estados finales con
                             //transicion epsilon que ingresan a la cerradura
-                            conjunto_epsilon.Add(transicion.termina);
+                            conjunto_epsilon.Add(transicion._terminaEn);
+                            cerraduraEpsilon(transiciones, conjunto_epsilon); //"Recursividad"
                         }
                     }
                 }

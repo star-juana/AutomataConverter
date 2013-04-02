@@ -19,7 +19,7 @@ namespace AFNDConverter
 
         #region Constructor
 
-        public AFD(List<string> alfabeto, string estadoInicial) 
+        public AFD(List<string> alfabeto, List<string> estadoInicial) 
         {
             this._alfabeto = alfabeto;
             this._estadoInicial.Add(estadoInicial);
