@@ -26,7 +26,7 @@ namespace AFNDConverter
             // 2 - Asigno la cerradura epsilon del estado inicial al conjunto de estados
             this._AFD = new AFD(this._AFND._alfabeto, this._AFND._estadoInicial);
 
-            // 3 - Itero en busca de las transiciones con cada elemento del alfabeto en busca de los estado en que terminan
+
             // 4 - Las transiciones que coinciden en la busqueda de 3 las agrego a la lista de conjuntos
             // 5 - Aplico la cerradura epsilon al ultimo elemto de la lista de conjuntos
             // 6 - Verifico si el ultimo conjunto es igual a alguno de los anteriores
@@ -142,9 +142,6 @@ namespace AFNDConverter
             }
             return respuesta;
         }
-
-      
-
 
         //Toma las transiciones en cuyos estados, se inicie con lo pedido estados que ingresen con el simbolo del alfabeto señalado
         static List<Transition> obtenerTransiciones(string[] estadosIniciales, string transicionaCon, List<Transition> trancisiones)

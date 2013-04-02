@@ -11,7 +11,7 @@ namespace AFNDConverter
         #region Atributos
         public List<string> _alfabeto;
         public List<string> _estados;
-        public List<string> _estadoInicial; //Es una solo estado no es necesario que sea un lista
+        public List<string> _estadoInicial;
         public List<string> _estadosFinales;
         public List<Transition> _transiciones;
         #endregion

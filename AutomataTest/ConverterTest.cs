@@ -100,10 +100,10 @@ namespace AutomataTest
             List<string> expected = new List<string> { "q1", "q2", "q3", "q4" }; // TODO: Inicializar en un valor adecuado
             List<string> actual;
             actual = Converter.cerraduraEpsilon(transiciones, estadosIniciales, indiceConjunto);
-            //foreach (string a in actual)
-            //{
-            //    Console.WriteLine("en epsilon luego de ejecutado todo {0}", a);
-            //}
+            foreach (string a in actual)
+            {
+                Console.WriteLine("en epsilon luego de ejecutado todo {0}", a);
+            }
             //Assert.AreEqual(expected, actual);
         }
     }
